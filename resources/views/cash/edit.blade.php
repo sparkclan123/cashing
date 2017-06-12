@@ -20,6 +20,7 @@ $(function(){
         <div class="form-group">
             <label for="title">เลือกวิธีการโอน</label>
               <select class="form-control" type="text"  name="method" id="method" value="{{$cashing->method}}" >
+                  <option>กรุณาเลือก</option>
                   <option>ATM</option>
                   <option>Internet Banking</option>
                   <option>Bank</option>
@@ -29,6 +30,7 @@ $(function(){
         <div class="form-group">
           <label for="title">เลือกธนาคาร</label>
             <select class="form-control" type="text"  name="formbank" id="formbank" value="{{$cashing->formbank}}">
+                <option>กรุณาเลือก</option>
                 <option>SCB</option>
                 <option>TMB</option>
                 <option>KTB</option>
@@ -64,6 +66,7 @@ $(function(){
         <div class="form-group">
           <label for="title">เลือกธนาคาร</label>
             <select class="form-control" type="text"  name="toBank" id="toBank" value="{{$cashing->toBank}}">
+                <option>กรุณาเลือก</option>
                 <option>SCB</option>
                 <option>TMB</option>
                 <option>KTB</option>
@@ -80,7 +83,15 @@ $(function(){
     <input type="text" class="form-control" name="toAccountName" id="toAccountName" placeholder="toAccountName" value="{{$cashing->toAccountName}}">
         </div>
 
-
+        <div class="form-group">
+          <label for="title">เลือกสถานะ</label>
+            <select class="form-control" type="text"  name="transferStatus" id="transferStatus" >
+                <option>กรุณาเลือก</option>
+                <option>waiting</option>
+                <option>approved</option>
+                <option>rejected</option>
+            </select>
+          </div>
 
 <center><button type="submit" class="btn btn-primary">บันทึกข้อมูล</button></center>
 </form>

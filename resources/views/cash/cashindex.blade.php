@@ -6,19 +6,19 @@
       <h1>Cashing</h1>
       <table class="table table-bordered">
         <tr>
-          <th>Id</th>
-        {{--    <th>user_id</th>--}}
-          <th>method</th>
-          <th>formbank</th>
-          <th>fromAccountNumber</th>
-          <th>fromAccountName</th>
-          <th>transferDate</th>
-          <th>transferTime</th>
-          <th>amount</th>
-          <th>toBank</th>
-          <th>toAccountNumber</th>
-          <th>toAccountName</th>
-          <th>transferStatus</th>
+          <th>รหัส</th>
+          <th>ชื่อผู้กรอกข้อมูล</th>
+          <th>วิธีการโอน</th>
+          <th>โอนจากธนาคาร</th>
+          <th>โอนจากเลขบัญชี</th>
+          <th>โอนจากชื่อบัญชี</th>
+          <th>วันที่โอน</th>
+          <th>เวลาโอน</th>
+          <th>จำนวนเงิน</th>
+          <th>โอนเข้าธนาคาร</th>
+          <th>โอนเข้าเลขบัญชี</th>
+          <th>โอนเข้าชื่อบัญชี</th>
+          <th>สถานะโอน</th>
           <th>ปุ่ม</th>
         </tr>
         <a href="cashing/create" type="text" class="btn btn-lg btn-primary">ADD</a href="/">
@@ -26,7 +26,9 @@
         @foreach ($cashings as $cash)
                 <tr>
                   <td>{{$cash->id}}</td>
-                {{--  <td>{{$cash->user_id}}</td>--}}
+             <td>{{$cash->user->name}}</td>
+
+
                   <td>{{$cash->method}}</td>
                   <td>{{$cash->formbank}}</td>
                   <td>{{$cash->fromAccountNumber}}</td>
@@ -40,11 +42,11 @@
                   <td>{{$cash->transferStatus}}</td>
                   <td></td>
                   <td>
-                    <form  action="/cashing/{{$cashing->id}}" method="post">
-                      <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                      <input type="hidden" name="_method" value="DELETE">
+                    <form method="post" action="/cashing/{{ $cash->id}}">
+                      <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                      <input name="_method" type="hidden" value="DELETE">
                         <a href="/cashing/{{ $cash->id}}/edit" type="Text" class="btn btn-default">Edit</a>
-                        <button type="submit" class="btn btn-denger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                       </form>
                   </td>
                 </tr>

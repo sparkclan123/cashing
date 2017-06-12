@@ -26,6 +26,7 @@ public function store(Request $request)
 {
 
 cashing::create([
+  'user_id'=> auth()->user()->id,
 'method'=>$request->method,
 'formbank'=>$request->formbank,
 'fromAccountNumber'=>$request->fromAccountNumber,
@@ -35,7 +36,8 @@ cashing::create([
 'amount'=>$request->amount,
 'toBank'=>$request->toBank,
 'toAccountNumber'=>$request->toAccountNumber,
-'toAccountName'=>$request->toAccountName
+'toAccountName'=>$request->toAccountName,
+'transferStatus'=>$request->transferStatus
 
 
   ]);
@@ -54,6 +56,7 @@ public function update(Request $request, $id )
   {
     $cashing = cashing::find($id);
     $cashing->update([
+        'user_id'=> auth()->user()->id,
       'method'=>$request->method,
       'formbank'=>$request->formbank,
       'fromAccountNumber'=>$request->fromAccountNumber,
@@ -63,18 +66,24 @@ public function update(Request $request, $id )
       'amount'=>$request->amount,
       'toBank'=>$request->toBank,
       'toAccountNumber'=>$request->toAccountNumber,
-      'toAccountName'=>$request->toAccountName
-
+      'toAccountName'=>$request->toAccountName,
+      'transferStatus'=>$request->transferStatus
 
     ]);
     return redirect('cashing');
   }
+
+
 public function destroy($id)
 {
   $cashing = cashing::find($id);
     $cashing->delete();
     return redirect('cashing');
 }
+
+
+
+
 
 
 }

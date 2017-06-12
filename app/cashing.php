@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class cashing extends Model
 {
-  protected $fillable = ['method',
+  protected $fillable = ['user_id','method',
   'formbank',
   'fromAccountNumber',
 'fromAccountName',
@@ -17,4 +17,9 @@ class cashing extends Model
 'toAccountNumber',
 'toAccountName',
 'transferStatus'];
+  public function user()
+  {
+    return $this->belongsTo(User::class , 'user_id');
+  }
+
 }

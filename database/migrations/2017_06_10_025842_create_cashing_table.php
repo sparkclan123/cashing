@@ -15,7 +15,7 @@ class CreateCashingTable extends Migration
     {
       Schema::create('cashings', function (Blueprint $table) {
           $table->increments('id');
-          //$table->integer('user_id')->unsigned()->index();
+          $table->integer('user_id')->unsigned()->index();
           $table->string('method');
           $table->string('formbank');
           $table->string('fromAccountNumber');
@@ -26,7 +26,7 @@ class CreateCashingTable extends Migration
           $table->string('toBank');
           $table->string('toAccountNumber');
           $table->string('toAccountName');
-          $table->integer('transferStatus')->default('0');
+          $table->string('transferStatus');
           $table->timestamps();
 
       });
