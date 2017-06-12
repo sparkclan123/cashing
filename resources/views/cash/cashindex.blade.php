@@ -21,7 +21,7 @@
           <th>สถานะโอน</th>
           <th>ปุ่ม</th>
         </tr>
-        <a href="cashing/create" type="text" class="btn btn-lg btn-primary">ADD</a href="/">
+        <a href="cashing/create" type="text" class="btn btn-lg btn-primary">เพิ่มข้อมูล</a href="/">
 
         @foreach ($cashings as $cash)
                 <tr>
@@ -45,8 +45,8 @@
                     <form method="post" action="/cashing/{{ $cash->id}}">
                       <input name="_token" type="hidden" value="{{ csrf_token() }}">
                       <input name="_method" type="hidden" value="DELETE">
-                        <a href="/cashing/{{ $cash->id}}/edit" type="Text" class="btn btn-default">Edit</a>
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <a href="/cashing/{{ $cash->id}}/edit" type="Text" class="btn btn-default">เเก้ไขข้อมูล</a>
+                        <button type="submit" class="btn btn-danger">ลบข้อมูล</button>
                       </form>
                   </td>
                 </tr>

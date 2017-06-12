@@ -14,7 +14,8 @@ $(function(){
 
 <div class="container">
     <div class="row">
-        <h1>แก้ไขข้อมูล</h1>
+        <center><h1>แก้ไขข้อมูล</h1></center>
+        <center><h2>กรุณากรอกข้อมูลให้ครบถ้วน</h2></center>
 <form action="/cashing/{{$cashing->id}}" method="post">
    {{ csrf_field() }}
         <div class="form-group">
